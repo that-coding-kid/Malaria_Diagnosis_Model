@@ -24,6 +24,53 @@ The problem addressed in this project is the classification of blood cell images
 
 7. **Analysis and Interpretation**: Analyze model predictions, visualize feature maps, and inspect misclassified samples to gain insights into model behavior. This analysis can inform further improvements to the model and highlight areas for future research.
 
+## Approaches
+1. ### Simple Sequential Model
+   Loss Function: Binary Cross Entropy Loss
+   ```Model
+   Model: "sequential_1"
+    _________________________________________________________________
+     Layer (type)                Output Shape              Param #   
+    =================================================================
+     conv2d_2 (Conv2D)           (None, 222, 222, 6)       168       
+                                                                     
+     batch_normalization_4 (Bat  (None, 222, 222, 6)       24        
+     chNormalization)                                                
+                                                                     
+     max_pooling2d_2 (MaxPoolin  (None, 111, 111, 6)       0         
+     g2D)                                                            
+                                                                     
+     conv2d_3 (Conv2D)           (None, 109, 109, 16)      880       
+                                                                     
+     batch_normalization_5 (Bat  (None, 109, 109, 16)      64        
+     chNormalization)                                                
+                                                                     
+     max_pooling2d_3 (MaxPoolin  (None, 54, 54, 16)        0         
+     g2D)                                                            
+                                                                     
+     flatten_1 (Flatten)         (None, 46656)             0         
+                                                                     
+     dense_3 (Dense)             (None, 100)               4665700   
+                                                                     
+     batch_normalization_6 (Bat  (None, 100)               400       
+     chNormalization)                                                
+                                                                     
+     dense_4 (Dense)             (None, 10)                1010      
+                                                                     
+     batch_normalization_7 (Bat  (None, 10)                40        
+     chNormalization)                                                
+                                                                     
+     dense_5 (Dense)             (None, 1)                 11        
+                                                                     
+    =================================================================
+    Total params: 4668297 (17.81 MB)
+    Trainable params: 4668033 (17.81 MB)
+    Non-trainable params: 264 (1.03 KB)
+    _________________________________________________________________
+   ```
+
+   *Accuracy*:92.5%
+
 
 ## Usage
 
